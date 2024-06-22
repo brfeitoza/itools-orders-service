@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123123
+    ports:
+      - 5433:5432
+
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.local
+  #   container_name: itools-orders-service
+  #   environment:
+  #     - PORT=${PORT}
+  #     - KAFKA_BROKER=${KAFKA_BROKER}
+  #   ports:
+  #     - '3001:3001'
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - ./src:/app/src
